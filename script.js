@@ -3,18 +3,22 @@ const formSection = document.querySelector('.form-secton-container');
 const form = document.querySelector('.form');
 const submitButton = form.querySelector('.submit');
 
-const input1 = form.querySelector('#login');
-input1.addEventListener('input', () => setDisabled());
+const loginField = form.querySelector('#login');
+loginField.addEventListener('input', () => setSubmitButtonStatus());
 
-const input2 = form.querySelector('#password');
-input2.addEventListener('input', () => setDisabled());
+const passwordField = form.querySelector('#password');
+passwordField.addEventListener('input', () => setSubmitButtonStatus());
 
-const input3 = form.querySelector('#agree');
-input3.addEventListener('input', () => setDisabled());
+const agreeCheckbox = form.querySelector('#agree');
+agreeCheckbox.addEventListener('input', () => setSubmitButtonStatus());
 
-let isSubmit = () => !!(!!input1.value.length && !!input2.value.length && input3.checked);
-const setDisabled = () =>
-  isSubmit() ? submitButton.removeAttribute('disabled') : submitButton.setAttribute('disabled', '');
+let isSubmitButtonActive = () =>
+  loginField.value.length && passwordField.value.length && agreeCheckbox.checked;
+
+const setSubmitButtonStatus = () =>
+  isSubmitButtonActive()
+    ? submitButton.removeAttribute('disabled')
+    : submitButton.setAttribute('disabled', '');
 
 let div = document.createElement('div');
 div.className = 'alert';
