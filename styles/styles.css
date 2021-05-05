@@ -43,13 +43,12 @@ body {
   transition: 0.3s ease, color 0.2s linear;
 }
 
-.input:valid {
+.input:focus {
   border-color: #4676d7;
 }
 
-.label {
-  font-size: 15px;
-  margin-bottom: 20px;
+.input:valid {
+  border-color: #17ad5b;
 }
 
 .required {
@@ -81,8 +80,15 @@ body {
 }
 
 .label {
+  font-size: 15px;
+  margin-bottom: 20px;
   position: relative;
   left: 30px;
+}
+
+input[type='checkbox']:focus ~ .label {
+  text-decoration: underline;
+  color: #4676d7;
 }
 
 .label::before {
