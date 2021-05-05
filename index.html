@@ -6,18 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+
     <title>Form</title>
   </head>
   <body>
-    <main>
-      <section>
-        <h1>Авторизация</h1>
-        <form action="http://jkorpela.fi/cgi-bin/echo.cgi" method="post">
-          <input type="text" name="text" id="text">
-        <input type="submit" value="rrrr">
+    <main class="main-container">
+      <section class="form-secton-container">
+        <h1 class="form-header">Вход</h1>
+        <form class="form" action="http://jkorpela.fi/cgi-bin/echo.cgi" method="post">
+          <input
+            class="input"
+            placeholder="логин"
+            type="text"
+            name="login"
+            id="login"
+            required
+            autofocus
+          />
+          <input
+            class="input"
+            placeholder="пароль"
+            type="password"
+            name="password"
+            id="password"
+            required
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Пароль должен состоять из цифр и латинских букв верхнего и нижнего регистра, не менее 8 символов"
+          />
+          <input class="visually-hidden" type="checkbox" name="agree" id="agree" value="agree" />
+
+          <label class="label" for="agree">
+            согласен с офертой <span class="required">*</span>
+          </label>
+
+          <input class="button submit" type="submit" value="Войти" disabled />
         </form>
       </section>
     </main>
+    <script src="./script.js"></script>
   </body>
 </html>
